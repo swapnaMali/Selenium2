@@ -16,6 +16,10 @@ public class Start {
 		driver.get("http://www.google.com");
 		System.out.println("HIIII merge to ,master in local repo now");
 
+		driver.manage().window().fullscreen();
+		driver.close();
+
+
 	/*
 
 		Server server = new Server();
