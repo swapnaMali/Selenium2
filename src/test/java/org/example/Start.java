@@ -15,7 +15,7 @@ public class Start {
 		WebDriver driver= new ChromeDriver();
 		driver.get("http://www.google.com");
 		System.out.println("HIIII merge to ,master in local repo now");
-		System.out.println("From dekstop now");
+		System.out.println("From dekstop 2now");
 		driver.manage().window().fullscreen();
 		driver.close();
 

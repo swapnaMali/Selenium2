@@ -19,6 +19,7 @@ public class TestHomePage extends TestCase
 	{
 		//start and render the test page
 		tester.startPage(HomePage.class);
+		System.out.println("desktopppppp");
 
 		//assert rendered page class
 		tester.assertRenderedPage(HomePage.class);
