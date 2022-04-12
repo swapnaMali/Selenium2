@@ -1,11 +1,21 @@
 package org.example;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+import junit.framework.Assert;
+import org.apache.commons.io.FileUtils;
+import org.apache.hc.core5.util.Asserts;
+import org.checkerframework.checker.units.qual.A;
 import org.mortbay.jetty.Connector;
 import org.mortbay.jetty.Server;
 import org.mortbay.jetty.bio.SocketConnector;
 import org.mortbay.jetty.webapp.WebAppContext;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+import java.io.File;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class Start {
 
@@ -13,10 +23,52 @@ public class Start {
 
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\swapn\\Downloads\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver= new ChromeDriver();
-		driver.get("http://www.google.com");
-		System.out.println("HIIII merge to ,master in local repo now");
+		//WebDriverManager.chromedriver().setup();
+		//WebDriver driver =new ChromeDriver();
+		driver.get("https://skryabin.com/market/quote.html");
+		System.out.println("HIIII Gitttttttt");
 		System.out.println("From dekstop 2now");
-		driver.manage().window().fullscreen();
+		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
+		//Assert.assertTrue(driver.findElement(By.xpath("//label[@for=\"name\"]")).isDisplayed());
+		System.out.println(driver.findElement(By.xpath("//label[@for=\"name\"]")).isDisplayed());
+
+		//Dimension d=new Dimension(50,50);
+		//driver.manage().window().setSize(d);
+		Thread.sleep(3000);
+	//	driver.manage().window().fullscreen();
+		//driver.switchTo().frame(driver.findElement(By.xpath("//div[@class='well container-fluid form-container']/div//input[@id='attachment']")));
+		driver.findElement(By.xpath("//a[@id='link']")).click();
+		//Thread.sleep(3000);
+		String parent = driver.getWindowHandle();
+		TakesScreenshot t=(TakesScreenshot) driver;
+		File f1=t.getScreenshotAs(OutputType.FILE);
+		//FileUtils.copyFile(f1,new File("C:\\Users\\swapn\\AppData\\Local\\Temp\\firstShot.png"));
+		FileUtils.copyFile(f1, new File("target/f1.png"));
+		System.out.println(f1.compareTo(new File("target/f2.png")));
+		driver.navigate().back();
+		Thread.sleep(3000);
+
+
+
+		//Actions a=new Actions(driver);
+		//a.sendKeys("crasher.apk");
+		//a.keyDown(Keys.ENTER);
+		Thread.sleep(3000);
+		driver.quit();
+
+
+
+		//Actions a=new Actions(getDriver());
+		//a.sendKeys(Keys.valueOf("bl"));
+      /*  Robot r=new Robot();
+        r.keyPress(KeyEvent.VK_B);
+        r.keyRelease(KeyEvent.VK_B);
+        r.keyPress(KeyEvent.VK_L);
+        r.keyRelease(KeyEvent.VK_L);
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyPress();
+
+
 		driver.close();
 
 
