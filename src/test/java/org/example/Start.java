@@ -26,7 +26,7 @@ public class Start {
 		//WebDriverManager.chromedriver().setup();
 		//WebDriver driver =new ChromeDriver();
 		driver.get("https://skryabin.com/market/quote.html");
-		System.out.println("HIIII Gitttttttt");
+		System.out.println("HIIII Gitttttttt how are yougi");
 		System.out.println("From dekstop 2now");
 		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
 		//Assert.assertTrue(driver.findElement(By.xpath("//label[@for=\"name\"]")).isDisplayed());
